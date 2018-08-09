@@ -1,22 +1,21 @@
 package com.leetcode.arrays;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ProductOfArrayExceptSelf {
-    public Object[] productExceptSelf(int[] nums) {
-        List<Integer> sum = new ArrayList<Integer>();
+    public int[] productExceptSelf(int[] nums) {
+        int[] sum = new int[nums.length];
+        int result = productResult(nums);
         for (int i = 0; i < nums.length; i++) {
-            int result = 1;
-            for (int sumIndex = 0; sumIndex < nums.length; sumIndex++) {
-                if (sumIndex != i) {
-                    result = result * nums[sumIndex];
-                }
-            }
-            sum.add(result);
-
+            sum[i] = result / nums[i];
         }
-        return sum.toArray();
+        return sum;
 
+    }
+
+    private int productResult(int[] nums) {
+        int result = 1;
+        for (int sumIndex = 0; sumIndex < nums.length; sumIndex++) {
+            result = result * nums[sumIndex];
+        }
+        return result;
     }
 }
