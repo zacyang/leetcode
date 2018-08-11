@@ -7,7 +7,7 @@ public class ProductOfArrayExceptSelf {
     public int[] productExceptSelf(int[] nums) {
         int[] sum = new int[nums.length];
         int result = productResult(nums);
-        List<Integer> zeroIndecies = zeroIndecies(nums);
+        List<Integer> zeroIndecies = zeroIndices(nums);
         for (int i = 0; i < nums.length; i++) {
             if (zeroIndecies.size() == 1) {
 
@@ -39,7 +39,7 @@ public class ProductOfArrayExceptSelf {
         return containsNoneZeo ? result : 0;
     }
 
-    private List<Integer> zeroIndecies(int[] nums) {
+    private List<Integer> zeroIndices(int[] nums) {
         List<Integer> result = new ArrayList<>();
         for (int sumIndex = 0; sumIndex < nums.length; sumIndex++) {
             if (nums[sumIndex] == 0) {
